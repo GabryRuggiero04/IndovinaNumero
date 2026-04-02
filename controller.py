@@ -19,6 +19,7 @@ class Controller(object):
     def reset(self, e):
         self._model.reset() #resetto lo stato del gioco lato modello!!
         self._view.btnIndovina.disabled = False
+        self._view.txtInTentativo.disabled = False
         self._view._txtT.value=self._model.T #il text field dell'interfaccia prende il valore del T del model
         self._view._lvOut.controls.clear() #stiamo dicendo di svuotare la lista di controlli di lvOut
         self._view._lvOut.controls.append(
@@ -48,6 +49,7 @@ class Controller(object):
             self._view._lvOut.controls.append(
                 ft.Text(f"Grande, il numero segreto è: {tentativoIntero}", color="green"))
             self._view.btnIndovina.disabled = True
+            self._view.txtInTentativo.disabled=True
             self._view.update()
             return
 
